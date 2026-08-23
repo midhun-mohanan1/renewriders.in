@@ -81,8 +81,8 @@ button{ font-family: inherit; cursor: pointer; }
   background: var(--rust);
   display: inline-block;
 }
-.on-dark .eyebrow{ color: var(--amber); }
-.on-dark .eyebrow::before{ background: var(--amber); }
+.eyebrow.on-dark{ color: var(--amber); }
+.eyebrow.on-dark::before{ background: var(--amber); }
 
 /* ==========================================================================
    Buttons
