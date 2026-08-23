@@ -51,4 +51,31 @@
   // Current year in footer
   var yearEl = document.querySelector('[data-year]');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // "Find It For Me" — compose a pre-filled WhatsApp message
+  var finderForm = document.getElementById('finderForm');
+  if (finderForm) {
+    finderForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var brand = finderForm.brand.value.trim();
+      var model = finderForm.model.value.trim();
+      var budget = finderForm.budget.value.trim();
+      var year = finderForm.year.value.trim();
+      var fuel = finderForm.fuel.value.trim();
+
+      var lines = ["Hi Renew Riders! I'm looking for a specific vehicle:"];
+      if (brand) lines.push('Brand: ' + brand);
+      if (model) lines.push('Model: ' + model);
+      if (budget) lines.push('Budget: ' + budget);
+      if (year) lines.push('Year: ' + year);
+      if (fuel) lines.push('Fuel: ' + fuel);
+      lines.push('');
+      lines.push('Please let me know if you have this or can source it.');
+
+      var message = encodeURIComponent(lines.join('\n'));
+      var waNumber = '919292115582';
+      window.open('https://wa.me/' + waNumber + '?text=' + message, '_blank', 'noopener');
+    });
+  }
 })();
